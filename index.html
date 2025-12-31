@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admas University | System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="bg-slate-100 font-sans">
+
+    <nav class="bg-[#002147] text-white p-4 shadow-xl sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-black text-yellow-500 tracking-tighter italic cursor-pointer" onclick="showTab('landing')">Admas <span class="text-white">UNI</span></h1>
+            <div class="space-x-4 flex items-center font-bold text-[11px] uppercase tracking-widest">
+                <button onclick="showTab('landing')" class="hover:text-yellow-400">Home</button>
+                <button onclick="showTab('apply')" class="bg-yellow-500 text-blue-950 px-5 py-2 rounded-full shadow-lg hover:scale-105 transition">Apply Now</button>
+                <button onclick="showTab('portal')" class="hover:text-yellow-400">Student Portal</button>
+                <button onclick="showTab('admin-login')" class="bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition border border-white/20">Admin Access</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="landing" class="tab-content active items-center justify-center text-center admin-bg text-white px-4">
+        <h2 class="text-6xl font-black mb-4 italic uppercase tracking-tighter">Welcome to Admas  <span class="text-yellow-500">Uni</span></h2>
+        <p class="text-blue-100 mb-10 max-w-xl mx-auto font-medium">Welcome to Admas University.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <button onclick="showTab('apply')" class="bg-red-600 px-12 py-4 rounded-full font-black uppercase tracking-widest shadow-2xl hover:bg-red-700 transition">Apply Now</button>
+            <button onclick="showTab('portal')" class="bg-transparent border-2 border-white/30 px-12 py-4 rounded-full font-black uppercase tracking-widest hover:bg-white/10 transition">Check Status</button>
+        </div>
+    </div>
+
+    <div id="admin-login" class="tab-content items-center justify-center admin-bg px-4">
+        <div class="glass-card w-full max-w-md p-10 rounded-[2.5rem] shadow-2xl border-t-8 border-yellow-500">
+            <div class="text-center mb-8">
+                <div class="bg-blue-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 italic font-black text-blue-900">UNI</div>
+                <h2 class="text-2xl font-black text-blue-900 uppercase italic">Staff Login</h2>
+            </div>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-5">
+                <input type="text" id="adminUser" placeholder="Username" required class="w-full bg-slate-50 p-4 rounded-2xl border-b-2 outline-none font-bold">
+                <input type="password" id="adminPass" placeholder="Password" required class="w-full bg-slate-50 p-4 rounded-2xl border-b-2 outline-nonefont-bold">
+                <button type="submit" class="w-full bg-[#002147] text-white py-4 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-blue-950 transition">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="apply" class="tab-content py-12 px-4">
+        <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-[2.5rem] overflow-hidden w-full">
+            <div class="bg-[#002147] text-white p-10 text-center uppercase font-black italic">Admission Form</div>
+            <form id="admissionForm" class="p-8 md:p-12 space-y-6" onsubmit="handleFormSubmit(event)">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-bold">
+                   <div class="space-y-1">
+                        <label class="font-bold text-blue-900 uppercase">Full Name</label>
+                        <input type="text" id="fullName" placeholder="Magacaaga oo buuxa" required class="w-full bg-slate-50 border-b-2 p-3 outline-none focus:border-yellow-500 font-bold text-sm">
+                    </div>
+                   <div class="space-y-1">
+                        <label class="font-bold text-blue-900 uppercase">Address</label>
+                        <input type="text" id="address" placeholder="Addresskaaga" required class="w-full bg-slate-50 border-b-2 p-3 outline-none focus:border-yellow-500 font-bold text-sm">
+                    </div>
+                     <div class="space-y-1">
+                        <label class="font-bold text-blue-900 uppercase">Parent Name</label>
+                        <input type="tel" id="parentName" placeholder="magaca waalidka" required class="w-full bg-slate-50 border-b-2 p-3 outline-none focus:border-yellow-500 font-bold text-sm">
+                    </div>
+                     
+                    <div class="space-y-1">
+                        <label class="font-bold text-blue-900 uppercase">Parent Phone</label>
+                        <input type="tel" id="parentNumber" placeholder="Lambarka waalidka" required class="w-full bg-slate-50 border-b-2 p-3 outline-none focus:border-yellow-500 font-bold text-sm">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="font-bold text-blue-900 uppercase">Department</label>
+                        <select id="program" class="w-full bg-slate-50 border-b-2 p-3 outline-none font-bold text-sm">
+                            <option>Computing & IT</option>
+                            <option>Public Health</option>
+                            <option>Social Science</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="font-bold text-blue-900 uppercase">shift</label>
+                        <select id="program" class="w-full bg-slate-50 border-b-2 p-3 outline-none font-bold text-sm">
+                            <option>Morning</option>
+                            <option>Evening</option>
+                            <option>After noon</option>
+                        </select>
+                    </div>
+                    <div class="border-2 border-dashed p-4 text-center rounded-2xl">
+                        <p class="text-[9px] mb-2 uppercase">Photo</p>
+                        <input type="file" id="photoInput" accept="image/*" required class="text-[9px]">
+                    </div>
+                    <div class="border-2 border-dashed p-4 text-center rounded-2xl">
+                        <p class="text-[9px] mb-2 uppercase">Cert (PDF)</p>
+                        <input type="file" id="pdfInput" accept=".pdf" required class="text-[9px]">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-[#002147] text-white py-5 rounded-2xl font-black uppercase shadow-xl">Submit Now</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="portal" class="tab-content items-center justify-center py-24 px-4 text-center">
+        <div class="max-w-xl mx-auto bg-white p-16 rounded-[3rem] shadow-2xl border-4 border-white w-full">
+            <i class="fa-solid fa-graduation-cap text-5xl text-blue-900 mb-6"></i>
+            <p id="portalStudentName" class="font-black text-blue-900 mb-2 text-3xl uppercase italic">No Active Application</p>
+            <div class="py-12 bg-slate-50 rounded-[2.5rem] mt-6 border-2 border-dashed border-slate-200">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Current Status</p>
+                <h3 id="displayStatus" class="text-5xl font-black text-yellow-500 italic uppercase">WAITING</h3>
+                <p id="portalMessage" class="mt-4 font-bold text-slate-500 text-sm italic px-6"></p>
+            </div>
+            <button onclick="showTab('apply')" class="mt-8 text-blue-900 font-bold text-xs uppercase underline">New Application</button>
+        </div>
+    </div>
+
+    <div id="admin-dashboard" class="tab-content py-12 px-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-4xl font-black text-blue-900 uppercase italic">Admin Panel</h2>
+                <button onclick="logoutAdmin()" class="bg-red-600 text-white px-8 py-2 rounded-xl font-black text-xs uppercase">Logout</button>
+            </div>
+            <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border">
+                <table class="w-full text-left">
+                    <thead class="bg-slate-50 border-b font-black text-[10px] text-slate-400 uppercase tracking-widest">
+                        <tr><th class="p-8">Applicant</th><th class="p-8">Course</th><th class="p-8 text-center">Status</th><th class="p-8 text-center">Action</th></tr>
+                    </thead>
+                    <tbody id="adminTableBody" class="divide-y divide-slate-50 font-bold text-sm"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="reviewModal" class="hidden fixed inset-0 z-[110] bg-[#002147]/95 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl rounded-[3.5rem] overflow-hidden shadow-2xl p-12 text-center">
+            <div id="reviewContent"></div>
+            <div class="flex justify-center gap-6 mt-10">
+                <button id="modalRejectBtn" class="bg-red-600 text-white px-10 py-4 rounded-2xl font-black text-xs uppercase">Reject</button>
+                <button id="modalApproveBtn" class="bg-green-600 text-white px-10 py-4 rounded-2xl font-black text-xs uppercase">Approve</button>
+                <button onclick="closeReviewModal()" class="px-8 py-4 font-black text-slate-400 text-xs uppercase">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="System.js"></script>
+</body>
+</html>
